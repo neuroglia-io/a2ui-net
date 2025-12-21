@@ -1,0 +1,27 @@
+<Solution>
+  <Folder Name="/.github/">
+    <File Path=".github/PULL_REQUEST_TEMPLATE.md" />
+  </Folder>
+  <Folder Name="/.github/ISSUE_TEMPLATE/">
+    <File Path=".github/ISSUE_TEMPLATE/bug.yml" />
+    <File Path=".github/ISSUE_TEMPLATE/config.yml" />
+    <File Path=".github/ISSUE_TEMPLATE/feature.yml" />
+  </Folder>
+  <Folder Name="/.github/workflows/">
+    <File Path=".github/workflows/publish.yml" />
+    <File Path=".github/workflows/test.yml" />
+  </Folder>
+  <Folder Name="/docs/">
+    <File Path="CODEOWNERS" />
+    <File Path="CODE_OF_CONDUCT.md" />
+    <File Path="CONTRIBUTING.md" />
+    <File Path="LICENSE" />
+    <File Path="MAINTAINERS.md" />
+    <File Path="README.md" />
+    <File Path="SECURITY.md" />
+  </Folder>
+  <Folder Name="/src/">
+    <Project Path="src/A2UI.Core/A2UI.Core.csproj" Id="e7ee08ac-de04-4571-ba49-da0b0db14e40" />
+  </Folder>
+  
+</Solution>
