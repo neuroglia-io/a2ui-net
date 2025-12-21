@@ -9,6 +9,7 @@
     <AssemblyVersion>$(VersionPrefix)</AssemblyVersion>
     <FileVersion>$(VersionPrefix)</FileVersion>
     <NeutralLanguage>en</NeutralLanguage>
+	<PublishAot>true</PublishAot>
 	<TreatWarningsAsErrors>true</TreatWarningsAsErrors>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
@@ -32,6 +33,10 @@
   		<Pack>True</Pack>
   		<PackagePath>\</PackagePath>
   	</None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="JsonPointer.Net" Version="6.0.1" />
   </ItemGroup>
 
 </Project>
