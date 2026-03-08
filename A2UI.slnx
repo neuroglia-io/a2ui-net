@@ -23,5 +23,8 @@
   <Folder Name="/src/">
     <Project Path="src/A2UI.Core/A2UI.Core.csproj" Id="e7ee08ac-de04-4571-ba49-da0b0db14e40" />
   </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/A2UI.UnitTests/A2UI.UnitTests.csproj" Id="f49930e0-1764-4ce2-b18a-7a02328def83" />
+  </Folder>
   
 </Solution>
