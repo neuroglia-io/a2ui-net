@@ -11,23 +11,34 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+using A2UI.Components;
+using A2UI.Messages;
+
 namespace A2UI.Serialization.Json;
 
 /// <summary>
 /// Represents the JSON serialization context for A2UI core types
 /// </summary>
 [JsonSourceGenerationOptions(GenerationMode = JsonSourceGenerationMode.Metadata, PropertyNamingPolicy = JsonKnownNamingPolicy.CamelCase, WriteIndented = false, DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull, AllowOutOfOrderMetadataProperties = true)]
-[JsonSerializable(typeof(Models.Component))]
 [JsonSerializable(typeof(Alignment))]
-[JsonSerializable(typeof(Distribution))]
 [JsonSerializable(typeof(ButtonAction))]
 [JsonSerializable(typeof(ChoicePickerOption))]
+[JsonSerializable(typeof(Component))]
 [JsonSerializable(typeof(ComponentTemplate))]
+[JsonSerializable(typeof(CreateSurfaceMessage))]
+[JsonSerializable(typeof(CreateSurfaceMessagePayload))]
 [JsonSerializable(typeof(DataModelReference))]
+[JsonSerializable(typeof(DeleteSurfaceMessage))]
+[JsonSerializable(typeof(DeleteSurfaceMessagePayload))]
+[JsonSerializable(typeof(Distribution))]
 [JsonSerializable(typeof(IconName))]
 [JsonSerializable(typeof(OneOf<DataModelReference, string>))]
 [JsonSerializable(typeof(string[]))]
 [JsonSerializable(typeof(Tab))]
+[JsonSerializable(typeof(UpdateComponentsMessage))]
+[JsonSerializable(typeof(UpdateComponentsMessagePayload))]
+[JsonSerializable(typeof(UpdateDataModelMessage))]
+[JsonSerializable(typeof(UpdateDataModelMessagePayload))]
 [JsonSerializable(typeof(Uri))]
 public partial class JsonSerializationContext
     : JsonSerializerContext

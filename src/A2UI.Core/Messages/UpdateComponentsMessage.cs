@@ -11,11 +11,17 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-global using A2UI.Serialization.Json;
-global using Json.Pointer;
-global using System.ComponentModel;
-global using System.ComponentModel.DataAnnotations;
-global using System.Runtime.Serialization;
-global using System.Text.Json;
-global using System.Text.Json.Nodes;
-global using System.Text.Json.Serialization;
+namespace A2UI.Messages;
+
+/// <summary>
+/// Represents a message that carries the payload required to update components within the A2UI application.
+/// </summary>
+[Description("Represents a message that carries the payload required to update components within the A2UI application.")]
+[DataContract]
+public sealed record UpdateComponentsMessage
+    : Message<UpdateComponentsMessagePayload>
+{
+
+
+
+}

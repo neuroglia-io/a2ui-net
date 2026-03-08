@@ -11,6 +11,8 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+using A2UI.Components;
+
 namespace A2UI.UnitTests.Services;
 
 public static class TabFactory

@@ -11,11 +11,12 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+using A2UI.Components;
+
 namespace A2UI.UnitTests.Services;
 
 internal static class ComponentFactory
 {
-
     internal static AudioPlayer CreateAudioPlayer() => new()
     {
         Url = new Uri("https://example.com/audio.mp3"),

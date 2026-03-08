@@ -11,7 +11,8 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-global using A2UI.Models;
+global using A2UI.Components;
+global using A2UI.Messages;
 global using A2UI.Serialization.Json;
 global using A2UI.UnitTests.Services;
 global using AwesomeAssertions;
