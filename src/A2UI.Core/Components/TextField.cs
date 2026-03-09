@@ -38,15 +38,15 @@ public sealed record TextField
     /// Gets the value, if any, of the text field.
     /// </summary>
     [Description("The value, if any, of the text field.")]
-    [DataMember(Order = 5, Name = "text"), JsonPropertyOrder(5), JsonPropertyName("text"), JsonConverter(typeof(JsonOneOfConverter<DataModelReference, string>))]
-    public OneOf<DataModelReference, string>? Text { get; init; }
+    [DataMember(Order = 5, Name = "value"), JsonPropertyOrder(5), JsonPropertyName("value"), JsonConverter(typeof(JsonOneOfConverter<DataModelReference, string>))]
+    public OneOf<DataModelReference, string>? Value { get; init; }
 
     /// <summary>
-    /// Gets the type of input field to display.
+    /// Gets the text field variant.
     /// </summary>
     [Description("The type of input field to display.")]
-    [DataMember(Order = 6, Name = "usageHint"), JsonPropertyOrder(6), JsonPropertyName("usageHint")]
-    public TextFieldUsageHint? UsageHint { get; init; }
+    [DataMember(Order = 6, Name = "variant"), JsonPropertyOrder(6), JsonPropertyName("variant")]
+    public TextFieldVariant Variant { get; init; } = TextFieldVariant.ShortText;
 
     /// <summary>
     /// Gets the regular expression, if any, used to validate the input.

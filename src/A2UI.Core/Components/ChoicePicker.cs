@@ -39,8 +39,8 @@ public sealed record ChoicePicker
     /// </summary>
     [Description("An hint for how the choice picker should be displayed and behave.")]
     [Required]
-    [DataMember(Order = 5, Name = "usageHint"), JsonPropertyOrder(5), JsonPropertyName("usageHint")]
-    public required ChoicePickerUsageHint UsageHint { get; init; }
+    [DataMember(Order = 5, Name = "variant"), JsonPropertyOrder(5), JsonPropertyName("variant")]
+    public ChoicePickerVariant Variant { get; init; } = ChoicePickerVariant.MutuallyExclusive;
 
     /// <summary>
     /// Gets a collection containing the options available in the choice picker.
@@ -57,5 +57,19 @@ public sealed record ChoicePicker
     [Required]
     [DataMember(Order = 7, Name = "value"), JsonPropertyOrder(7), JsonPropertyName("value"), JsonConverter(typeof(JsonOneOfConverter<DataModelReference, string[]>))]
     public required OneOf<DataModelReference, string[]> Value { get; init; }
+
+    /// <summary>
+    /// Gets the component's display style.
+    /// </summary>
+    [Description("The component's display style.")]
+    [DataMember(Order = 8, Name = "displayStyle"), JsonPropertyOrder(8), JsonPropertyName("displayStyle")]
+    public ChoicePickerDisplayStyle DisplayStyle { get; init; } = ChoicePickerDisplayStyle.Checkbox;
+
+    /// <summary>
+    /// Gets a boolean that indicates whether the choice picker should allow filtering the options by typing in a search box.
+    /// </summary>
+    [Description("A boolean that indicates whether the choice picker should allow filtering the options by typing in a search box.")]
+    [DataMember(Order = 9, Name = "filterable"), JsonPropertyOrder(9), JsonPropertyName("filterable")]
+    public bool? Filterable { get; init; }
 
 }

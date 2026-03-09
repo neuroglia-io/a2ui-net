@@ -35,11 +35,11 @@ public sealed record Button
     public required string Child { get; init; }
 
     /// <summary>
-    /// Gets a boolean indicating whether the button should be styled as the primary action.
+    /// Gets a hint for the button style.
     /// </summary>
-    [Description("A boolean indicating whether the button should be styled as the primary action.")]
-    [DataMember(Order = 5, Name = "primary"), JsonPropertyOrder(5), JsonPropertyName("primary")]
-    public bool? Primary { get; init; }
+    [Description("A hint for the button style.")]
+    [DataMember(Order = 5, Name = "variant"), JsonPropertyOrder(5), JsonPropertyName("variant")]
+    public ButtonVariant Variant { get; init; } = ButtonVariant.Default;
 
     /// <summary>
     /// Gets the client-side action to be dispatched when the button is clicked.

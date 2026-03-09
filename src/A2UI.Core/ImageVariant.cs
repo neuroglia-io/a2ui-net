@@ -16,8 +16,8 @@ namespace A2UI;
 /// <summary>
 /// Enumerates all supported image usage hints.
 /// </summary>
-[JsonConverter(typeof(JsonStringEnumConverter<ImageUsageHint>))]
-public enum ImageUsageHint
+[JsonConverter(typeof(JsonStringEnumConverter<ImageVariant>))]
+public enum ImageVariant
 {
     /// <summary>
     /// Indicates an icon image.

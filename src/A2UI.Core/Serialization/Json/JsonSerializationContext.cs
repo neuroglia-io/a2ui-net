@@ -30,7 +30,7 @@ namespace A2UI.Serialization.Json;
 [JsonSerializable(typeof(DataModelReference))]
 [JsonSerializable(typeof(DeleteSurfaceMessage))]
 [JsonSerializable(typeof(DeleteSurfaceMessagePayload))]
-[JsonSerializable(typeof(Distribution))]
+[JsonSerializable(typeof(Justify))]
 [JsonSerializable(typeof(IconName))]
 [JsonSerializable(typeof(OneOf<DataModelReference, string>))]
 [JsonSerializable(typeof(string[]))]

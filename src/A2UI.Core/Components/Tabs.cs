@@ -45,7 +45,7 @@ public sealed record Tabs
     /// </summary>
     [Description("The tabs the component contains.")]
     [Required]
-    [DataMember(Order = 4, Name = "tabItems"), JsonPropertyOrder(4), JsonPropertyName("tabItems")]
-    public required IReadOnlyCollection<Tab> TabItems { get; init; }
+    [DataMember(Order = 4, Name = "tabs"), JsonPropertyOrder(4), JsonPropertyName("tabs")]
+    public required IReadOnlyCollection<Tab> Items { get; init; }
 
 }

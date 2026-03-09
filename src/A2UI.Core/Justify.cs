@@ -16,8 +16,8 @@ namespace A2UI;
 /// <summary>
 /// Enumerates component distribution strategies.
 /// </summary>
-[JsonConverter(typeof(JsonStringEnumConverter<Distribution>))]
-public enum Distribution
+[JsonConverter(typeof(JsonStringEnumConverter<Justify>))]
+public enum Justify
 {
     /// <summary>
     /// Indicates center distribution.

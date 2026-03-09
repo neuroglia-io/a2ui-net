@@ -49,17 +49,10 @@ public sealed record DateTimeInput
     public bool? EnableTime { get; init; }
 
     /// <summary>
-    /// Gets the desired output format, if any, for the date and/or time value.
-    /// </summary>
-    [Description("The desired output format, if any, for the date and/or time value.")]
-    [DataMember(Order = 7, Name = "outputFormat"), JsonPropertyOrder(7), JsonPropertyName("outputFormat")]
-    public string? OutputFormat { get; init; }
-
-    /// <summary>
     /// Gets the text label for the input field.
     /// </summary>
     [Description("The text label for the input field.")]
-    [DataMember(Order = 8, Name = "label"), JsonPropertyOrder(8), JsonPropertyName("label"), JsonConverter(typeof(JsonOneOfConverter<DataModelReference, string>))]
+    [DataMember(Order = 7, Name = "label"), JsonPropertyOrder(7), JsonPropertyName("label"), JsonConverter(typeof(JsonOneOfConverter<DataModelReference, string>))]
     public OneOf<DataModelReference, string>? Label { get; init; }
 
 }

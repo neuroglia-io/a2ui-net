@@ -14,10 +14,10 @@
 namespace A2UI;
 
 /// <summary>
-/// Enumerates text field usage hints.
+/// Enumerates text field variants.
 /// </summary>
-[JsonConverter(typeof(JsonStringEnumConverter<TextFieldUsageHint>))]
-public enum TextFieldUsageHint
+[JsonConverter(typeof(JsonStringEnumConverter<TextFieldVariant>))]
+public enum TextFieldVariant
 {
     /// <summary>
     /// Indicates a long text input field.

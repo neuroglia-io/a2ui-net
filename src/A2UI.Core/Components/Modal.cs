@@ -31,15 +31,15 @@ public sealed record Modal
     /// </summary>
     [Description("The unique identifier of the component that opens the modal when interacted with (e.g., a button).")]
     [Required]
-    [DataMember(Order = 4, Name = "entryPointChild"), JsonPropertyOrder(4), JsonPropertyName("entryPointChild")]
-    public required string EntryPointChild { get; init; }
+    [DataMember(Order = 4, Name = "trigger"), JsonPropertyOrder(4), JsonPropertyName("trigger")]
+    public required string Trigger { get; init; }
 
     /// <summary>
     /// Gets the unique identifier of the component to be displayed within the modal.
     /// </summary>
     [Description("The unique identifier of the component to be displayed within the modal.")]
     [Required]
-    [DataMember(Order = 5, Name = "contentChild"), JsonPropertyOrder(5), JsonPropertyName("contentChild")]
-    public required string ContentChild { get; init; }
+    [DataMember(Order = 5, Name = "content"), JsonPropertyOrder(5), JsonPropertyName("content")]
+    public required string Content { get; init; }
 
 }

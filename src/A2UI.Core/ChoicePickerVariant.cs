@@ -16,8 +16,8 @@ namespace A2UI;
 /// <summary>
 /// Enumerates hints for choice picker usage.
 /// </summary>
-[JsonConverter(typeof(JsonStringEnumConverter<ChoicePickerUsageHint>))]
-public enum ChoicePickerUsageHint
+[JsonConverter(typeof(JsonStringEnumConverter<ChoicePickerVariant>))]
+public enum ChoicePickerVariant
 {
     /// <summary>
     /// Indicates that multiple selections are allowed.

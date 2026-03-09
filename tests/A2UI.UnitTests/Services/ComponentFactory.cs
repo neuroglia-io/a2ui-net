@@ -44,7 +44,7 @@ internal static class ComponentFactory
     {
         Label = DataModelReferenceFactory.Create(),
         Value = DataModelReferenceFactory.Create(),
-        UsageHint = ChoicePickerUsageHint.MultipleSelection,
+        Variant = ChoicePickerVariant.MultipleSelection,
         Options =
         [
             ChoicePickerOptionFactory.Create(),
@@ -61,8 +61,8 @@ internal static class ComponentFactory
             Guid.NewGuid().ToString("N"),
             Guid.NewGuid().ToString("N")
         },
-        Alignment = Alignment.Center,
-        Distribution = Distribution.SpaceAround
+        Align = Alignment.Center,
+        Justify = Justify.SpaceAround
     };
 
     internal static DateTimeInput CreateDateTimeInput() => new()
@@ -88,7 +88,7 @@ internal static class ComponentFactory
     {
         Url = new Uri("https://example.com/image.png"),
         Fit = ImageFit.Cover,
-        UsageHint = ImageUsageHint.LargeFeature
+        Variant = ImageVariant.LargeFeature
     };
 
     internal static List CreateList() => new()
@@ -99,14 +99,14 @@ internal static class ComponentFactory
             Guid.NewGuid().ToString("N"),
             Guid.NewGuid().ToString("N")
         },
-        Alignment = Alignment.End,
+        Align = Alignment.End,
         Direction = Direction.Vertical
     };
 
     internal static Modal CreateModal() => new()
     {
-        EntryPointChild = Guid.NewGuid().ToString("N"),
-        ContentChild = Guid.NewGuid().ToString("N")
+        Trigger = Guid.NewGuid().ToString("N"),
+        Content = Guid.NewGuid().ToString("N")
     };
 
     internal static Row CreateRow() => new()
@@ -117,8 +117,8 @@ internal static class ComponentFactory
             Guid.NewGuid().ToString("N"),
             Guid.NewGuid().ToString("N")
         },
-        Alignment = Alignment.Start,
-        Distribution = Distribution.SpaceBetween
+        Align = Alignment.Start,
+        Justify = Justify.SpaceBetween
     };
 
     internal static Slider CreateSlider() => new()
@@ -131,7 +131,7 @@ internal static class ComponentFactory
 
     internal static Tabs CreateTabs() => new()
     {
-        TabItems =
+        Items =
         [
             TabFactory.Create(),
             TabFactory.Create(),
@@ -149,7 +149,7 @@ internal static class ComponentFactory
     {
         Label = DataModelReferenceFactory.Create(),
         Text = DataModelReferenceFactory.Create(),
-        UsageHint = TextFieldUsageHint.LongText,
+        UsageHint = TextFieldVariant.LongText,
         ValidationRegex = "^[^@\\s]+@[^@\\s]+\\.[^@\\s]+$"
     };
 

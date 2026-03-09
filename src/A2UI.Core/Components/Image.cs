@@ -45,7 +45,7 @@ public sealed record Image
     /// Gets a hint, if any, for the image size and style.
     /// </summary>
     [Description("A hint, if any, for the image size and style.")]
-    [DataMember(Order = 6, Name = "usageHint"), JsonPropertyOrder(6), JsonPropertyName("usageHint")]
-    public ImageUsageHint? UsageHint { get; init; }
+    [DataMember(Order = 6, Name = "variant"), JsonPropertyOrder(6), JsonPropertyName("variant")]
+    public ImageVariant? Variant { get; init; }
 
 }

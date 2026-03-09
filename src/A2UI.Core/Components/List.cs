@@ -45,7 +45,7 @@ public sealed record List
     /// Gets the alignment strategy, if any, used to align children along the cross axis.
     /// </summary>
     [Description("The alignment strategy, if any, used to align children along the cross axis.")]
-    [DataMember(Order = 6, Name = "alignment"), JsonPropertyOrder(6), JsonPropertyName("alignment")]
-    public Alignment? Alignment { get; init; }
+    [DataMember(Order = 6, Name = "align"), JsonPropertyOrder(6), JsonPropertyName("align")]
+    public Alignment? Align { get; init; }
 
 }

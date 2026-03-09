@@ -38,14 +38,14 @@ public sealed record Column
     /// Gets the distribution strategy, if any, used to arrange children along the main axis (horizontally).
     /// </summary>
     [Description("The distribution strategy, if any, used to arrange children along the main axis (horizontally).")]
-    [DataMember(Order = 5, Name = "distribution"), JsonPropertyOrder(5), JsonPropertyName("distribution")]
-    public Distribution? Distribution { get; init; }
+    [DataMember(Order = 5, Name = "justify"), JsonPropertyOrder(5), JsonPropertyName("justify")]
+    public Justify? Justify { get; init; }
 
     /// <summary>
     /// Gets the alignment strategy, if any, used to align children along the cross axis (vertically).
     /// </summary>
     [Description("The alignment strategy, if any, used to align children along the cross axis (vertically).")]
-    [DataMember(Order = 6, Name = "alignment"), JsonPropertyOrder(6), JsonPropertyName("alignment")]
-    public Alignment? Alignment { get; init; }
+    [DataMember(Order = 6, Name = "align"), JsonPropertyOrder(6), JsonPropertyName("align")]
+    public Alignment? Align { get; init; }
 
 }
