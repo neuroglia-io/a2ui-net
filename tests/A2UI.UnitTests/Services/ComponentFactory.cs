@@ -70,8 +70,7 @@ internal static class ComponentFactory
         Label = DataModelReferenceFactory.Create(),
         Value = DataModelReferenceFactory.Create(),
         EnableDate = true,
-        EnableTime = false,
-        OutputFormat = "yyyy-MM-dd"
+        EnableTime = false
     };
 
     internal static Divider CreateDivider() => new()
@@ -148,8 +147,8 @@ internal static class ComponentFactory
     internal static TextField CreateTextField() => new()
     {
         Label = DataModelReferenceFactory.Create(),
-        Text = DataModelReferenceFactory.Create(),
-        UsageHint = TextFieldVariant.LongText,
+        Value = DataModelReferenceFactory.Create(),
+        Variant = TextFieldVariant.LongText,
         ValidationRegex = "^[^@\\s]+@[^@\\s]+\\.[^@\\s]+$"
     };
 
