@@ -11,15 +11,13 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-using A2UI.Messages;
-
 namespace A2UI.UnitTests.Services;
 
 internal static class MessageFactory
 {
     internal static DeleteSurfaceMessage CreateDeleteSurfaceMessage() => new()
     {
-        Payload = new()
+        DeleteSurface = new()
         {
             SurfaceId = Guid.NewGuid().ToString("N")
         }
@@ -27,7 +25,7 @@ internal static class MessageFactory
 
     internal static CreateSurfaceMessage CreateSurfaceMessage() => new()
     {
-        Payload = new()
+        CreateSurface = new()
         {
             SurfaceId = Guid.NewGuid().ToString("N"),
             CatalogId = Guid.NewGuid().ToString("N"),
@@ -38,21 +36,21 @@ internal static class MessageFactory
 
     internal static UpdateComponentsMessage CreateUpdateComponentsMessage() => new()
     {
-        Payload = new()
+        UpdateComponents = new()
         {
             SurfaceId = Guid.NewGuid().ToString("N"),
             Components =
             [
                 ComponentFactory.CreateButton(),
-                    ComponentFactory.CreateText(),
-                    ComponentFactory.CreateImage()
+                ComponentFactory.CreateText(),
+                ComponentFactory.CreateImage()
             ]
         }
     };
 
     internal static UpdateDataModelMessage CreateUpdateDataModelMessage() => new()
     {
-        Payload = new()
+        UpdateDataModel = new()
         {
             SurfaceId = Guid.NewGuid().ToString("N"),
             Path = JsonPointer.Create("/fake-path"),

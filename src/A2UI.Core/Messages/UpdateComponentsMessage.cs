@@ -19,9 +19,14 @@ namespace A2UI.Messages;
 [Description("Represents a message that carries the payload required to update components within the A2UI application.")]
 [DataContract]
 public sealed record UpdateComponentsMessage
-    : Message<UpdateComponentsMessagePayload>
+    : Message
 {
 
-
+    /// <summary>
+    /// Gets the message's payload, which contains the details of the components to be updated.
+    /// </summary>
+    [Description("The message's payload, which contains the details of the components to be updated.")]
+    [DataMember(Order = 2, Name = "updateComponents"), JsonPropertyOrder(2), JsonPropertyName("updateComponents")]
+    public required UpdateComponentsMessagePayload UpdateComponents { get; init; }
 
 }

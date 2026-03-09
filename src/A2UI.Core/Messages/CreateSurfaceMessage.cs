@@ -19,9 +19,14 @@ namespace A2UI.Messages;
 [Description("Represents a message that can be sent to create a new surface. This message can be used to request the creation of a new surface in the application, which can then be used to display components and interact with the user.")]
 [DataContract]
 public sealed record CreateSurfaceMessage
-    : Message<CreateSurfaceMessagePayload>
+    : Message
 {
 
-
+    /// <summary>
+    /// Gets the message's payload, which contains the details of the surface to be created.
+    /// </summary>
+    [Description("The message's payload, which contains the details of the surface to be created.")]
+    [DataMember(Order = 2, Name = "createSurface"), JsonPropertyOrder(2), JsonPropertyName("createSurface")]
+    public required CreateSurfaceMessagePayload CreateSurface { get; init; }
 
 }
