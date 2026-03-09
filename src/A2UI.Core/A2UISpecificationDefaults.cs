@@ -23,5 +23,22 @@ public static class A2UISpecificationDefaults
     /// Gets the default version of the A2UI specification that components and messages should conform to
     /// </summary>
     public const string Version = "v0.9";
+    /// <summary>
+    /// Gets the default content type for A2UI messages.
+    /// </summary>
+    public const string ContentType = "application/json+a2ui";
+
+    /// <summary>
+    /// Exposes default catalogs that can be used by components and messages to reference standard definitions of components, surfaces, and other elements in the A2UI specification.
+    /// </summary>
+    public static class Catalogs
+    {
+
+        /// <summary>
+        /// Gets the URL of the standard A2UI catalog.
+        /// </summary>
+        public const string Standard = "https://a2ui.org/specification/v0_9/basic_catalog.json";
+
+    }
 
 }

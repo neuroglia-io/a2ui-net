@@ -19,7 +19,14 @@ namespace A2UI.Messages;
 [Description("Represents a message that can be sent to delete an existing surface.")]
 [DataContract]
 public sealed record DeleteSurfaceMessage
-    : Message<DeleteSurfaceMessagePayload>
+    : Message
 {
+
+    /// <summary>
+    /// Gets the message's payload, which contains the details of the surface to delete.
+    /// </summary>
+    [Description("The message's payload, which contains the details of the surface to delete.")]
+    [DataMember(Order = 2, Name = "deleteSurface"), JsonPropertyOrder(2), JsonPropertyName("deleteSurface")]
+    public required DeleteSurfaceMessagePayload DeleteSurface { get; init; }
 
 }

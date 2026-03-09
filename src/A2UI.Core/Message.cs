@@ -29,21 +29,3 @@ public abstract record Message
     public string Version { get; set; } = A2UISpecificationDefaults.Version;
 
 }
-
-/// <summary>
-/// Represents an A2UI message. Messages are used to communicate between components and the application. They can be used to trigger actions, update state, or notify about events. Messages are immutable and can be created using record types for convenience.
-/// </summary>
-/// <typeparam name="TPayload">The type of the payload contained in the message. The payload contains the data associated with the message and can be used by components to perform actions or update state based on the information contained within it.</typeparam>
-public abstract record Message<TPayload> 
-    : Message
-    where TPayload : notnull
-{
-
-    /// <summary>
-    /// Gets or sets the payload of the message. The payload contains the data associated with the message and can be used by components to perform actions or update state based on the information contained within it.
-    /// </summary>
-    [Description("The payload of the message.")]
-    [DataMember(Order = 2, Name = "payload"), JsonPropertyOrder(2), JsonPropertyName("payload")]
-    public required TPayload Payload { get; init; }
-
-}
