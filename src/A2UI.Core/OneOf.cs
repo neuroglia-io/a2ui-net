@@ -18,7 +18,7 @@ namespace A2UI;
 /// </summary>
 /// <typeparam name="T1">The first possible type.</typeparam>
 /// <typeparam name="T2">The second possible type.</typeparam>
-public sealed record OneOf<T1, T2>
+public record OneOf<T1, T2>
 {
 
     readonly byte tag;
@@ -117,5 +117,150 @@ public sealed record OneOf<T1, T2>
     /// </summary>
     /// <param name="value">The value to convert.</param>
     public static implicit operator OneOf<T1, T2>(T2 value) => new(value);
+
+}
+
+/// <summary>
+/// Represents a value that can be one of two possible types.
+/// </summary>
+/// <typeparam name="T1">The first possible type.</typeparam>
+/// <typeparam name="T2">The second possible type.</typeparam>
+/// <typeparam name="T3">The third possible type.</typeparam>
+public record OneOf<T1, T2, T3>
+{
+    readonly byte tag;
+    readonly T1? t1;
+    readonly T2? t2;
+    readonly T3? t3;
+
+    /// <summary>
+    /// Initializes a new <see cref="OneOf{T1, T2, T3}"/>.
+    /// </summary>
+    /// <param name="value">The value.</param>
+    public OneOf(T1 value)
+    {
+        tag = 1;
+        t1 = value;
+        t2 = default;
+        t3 = default;
+    }
+
+    /// <summary>
+    /// Initializes a new <see cref="OneOf{T1, T2, T3}"/>.
+    /// </summary>
+    /// <param name="value">The value.</param>
+    public OneOf(T2 value)
+    {
+        tag = 2;
+        t1 = default;
+        t2 = value;
+        t3 = default;
+    }
+
+    /// <summary>
+    /// Initializes a new <see cref="OneOf{T1, T2, T3}"/>.
+    /// </summary>
+    /// <param name="value">The value.</param>
+    public OneOf(T3 value)
+    {
+        tag = 3;
+        t1 = default;
+        t2 = default;
+        t3 = value;
+    }
+
+    /// <summary>
+    /// Attempts to get the value as <typeparamref name="T1"/>.
+    /// </summary>
+    /// <param name="value">The output value.</param>
+    /// <returns>A boolean indicating whether the value was of type <typeparamref name="T1"/>.</returns>
+    public bool TryGetAsT1(out T1? value)
+    {
+        value = t1;
+        if (tag is not 1) return false;
+        return true;
+    }
+
+    /// <summary>
+    /// Attempts to get the value as <typeparamref name="T2"/>.
+    /// </summary>
+    /// <param name="value">The output value.</param>
+    /// <returns>A boolean indicating whether the value was of type <typeparamref name="T2"/>.</returns>
+    public bool TryGetAsT2(out T2? value)
+    {
+        value = t2;
+        if (tag is not 2) return false;
+        return true;
+    }
+
+    /// <summary>
+    /// Attempts to get the value as <typeparamref name="T3"/>.
+    /// </summary>
+    /// <param name="value">The output value.</param>
+    /// <returns>A boolean indicating whether the value was of type <typeparamref name="T3"/>.</returns>
+    public bool TryGetAsT2(out T3? value)
+    {
+        value = t3;
+        if (tag is not 3) return false;
+        return true;
+    }
+
+    /// <summary>
+    /// Matches the value and invokes the corresponding function.
+    /// </summary>
+    /// <typeparam name="T">The return type of the functions.</typeparam>
+    /// <param name="f1">The function to invoke if the value is of type <typeparamref name="T1"/>.</param>
+    /// <param name="f2">The function to invoke if the value is of type <typeparamref name="T2"/>.</param>
+    /// <param name="f3">The function to invoke if the value is of type <typeparamref name="T3"/>.</param>
+    /// <returns>TA value of type <typeparamref name="T"/>.</returns>
+    public T Match<T>(Func<T1, T> f1, Func<T2, T> f2, Func<T3, T> f3) => tag switch
+    {
+        1 => f1(t1!),
+        2 => f2(t2!),
+        3 => f3(t3!),
+        _ => throw new InvalidOperationException("Invalid OneOf state."),
+    };
+
+    /// <summary>
+    /// Switches the value and invokes the corresponding action.
+    /// </summary>
+    /// <param name="a1">The action to invoke if the value is of type <typeparamref name="T1"/>.</param>
+    /// <param name="a2">The action to invoke if the value is of type <typeparamref name="T2"/>.</param>
+    /// <param name="a3">The action to invoke if the value is of type <typeparamref name="T3"/>.</param>
+    public void Switch(Action<T1> a1, Action<T2> a2, Action<T3> a3)
+    {
+        switch (tag)
+        {
+            case 1:
+                a1(t1!);
+                break;
+            case 2:
+                a2(t2!);
+                break;
+            case 3:
+                a3(t3!);
+                break;
+            default:
+                throw new InvalidOperationException("Invalid OneOf state.");
+        }
+    }
+
+    /// <summary>
+    /// Implicitly converts a <typeparamref name="T1"/> to a <see cref="OneOf{T1, T2, T3}"/>.
+    /// </summary>
+    /// <param name="value">The value to convert.</param>
+    public static implicit operator OneOf<T1, T2, T3>(T1 value) => new(value);
+
+    /// <summary>
+    /// Implicitly converts a <typeparamref name="T2"/> to a <see cref="OneOf{T1, T2, T3}"/>.
+    /// </summary>
+    /// <param name="value">The value to convert.</param>
+    public static implicit operator OneOf<T1, T2, T3>(T2 value) => new(value);
+
+    /// <summary>
+    /// Implicitly converts a <typeparamref name="T3"/> to a <see cref="OneOf{T1, T2, T3}"/>.
+    /// </summary>
+    /// <param name="value">The value to convert.</param>
+    public static implicit operator OneOf<T1, T2, T3>(T3 value) => new(value);
 
 }

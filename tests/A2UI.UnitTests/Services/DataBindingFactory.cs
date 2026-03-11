@@ -13,10 +13,10 @@
 
 namespace A2UI.UnitTests.Services;
 
-internal sealed class DataModelReferenceFactory
+internal sealed class DataBindingFactory
 {
 
-    internal static DataModelReference Create() => new()
+    internal static DataBinding Create() => new()
     {
         Path = JsonPointer.Parse("/sample/path")
     };

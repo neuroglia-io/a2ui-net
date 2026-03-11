@@ -11,25 +11,21 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-namespace A2UI;
+namespace A2UI.Functions;
 
 /// <summary>
-/// Represents a reference to a value in the data model.
+/// Represents the input arguments for a <see cref="RequiredFunctionCall"/>.
 /// </summary>
-[Description("Represents a reference to a value in the data model.")]
+[Description("Represents the input arguments for a RequiredFunctionCall.")]
 [DataContract]
-public sealed record DataModelReference
+public sealed record RequiredFunctionArgs
 {
 
     /// <summary>
-    /// Gets the path to the value in the data model.
+    /// Gets the required value to check.
     /// </summary>
-    [Description("The path to the value in the data model.")]
-    [Required]
-    [DataMember(Order = 1, Name = "path"), JsonPropertyOrder(1), JsonPropertyName("path")]
-    public required JsonPointer Path { get; init; }
-
-    /// <inheritdoc/>
-    public override string ToString() => Path.ToString();
+    [Description("The required value to check.")]
+    [DataMember(Order = 1, Name = "value"), JsonPropertyOrder(1), JsonPropertyName("value"), JsonConverter(typeof(JsonOneOfConverter<DataBinding, FunctionCall, string>))]
+    public OneOf<DataBinding, FunctionCall, string>? Value { get; init; }
 
 }

@@ -11,8 +11,6 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-using A2UI.Components;
-
 namespace A2UI.UnitTests.Services;
 
 internal static class ComponentFactory
@@ -26,7 +24,7 @@ internal static class ComponentFactory
     internal static Button CreateButton() => new()
     {
         Child = Guid.NewGuid().ToString("N"),
-        Action = ButtonActionFactory.Create()
+        Action = ActionDefinitionFactory.CreateEventAction()
     };
 
     internal static Card CreateCard() => new()
@@ -36,14 +34,14 @@ internal static class ComponentFactory
 
     internal static CheckBox CreateCheckBox() => new()
     {
-        Label = DataModelReferenceFactory.Create(),
-        Value = DataModelReferenceFactory.Create()
+        Label = DataBindingFactory.Create(),
+        Value = DataBindingFactory.Create()
     };
 
     internal static ChoicePicker CreateChoicePicker() => new()
     {
-        Label = DataModelReferenceFactory.Create(),
-        Value = DataModelReferenceFactory.Create(),
+        Label = DataBindingFactory.Create(),
+        Value = DataBindingFactory.Create(),
         Variant = ChoicePickerVariant.MultipleSelection,
         Options =
         [
@@ -67,8 +65,8 @@ internal static class ComponentFactory
 
     internal static DateTimeInput CreateDateTimeInput() => new()
     {
-        Label = DataModelReferenceFactory.Create(),
-        Value = DataModelReferenceFactory.Create(),
+        Label = DataBindingFactory.Create(),
+        Value = DataBindingFactory.Create(),
         EnableDate = true,
         EnableTime = false
     };
@@ -122,8 +120,8 @@ internal static class ComponentFactory
 
     internal static Slider CreateSlider() => new()
     {
-        Label = DataModelReferenceFactory.Create(),
-        Value = DataModelReferenceFactory.Create(),
+        Label = DataBindingFactory.Create(),
+        Value = DataBindingFactory.Create(),
         Min = 0,
         Max = 100,
     };
@@ -140,14 +138,14 @@ internal static class ComponentFactory
 
     internal static Text CreateText() => new()
     {
-        Content = DataModelReferenceFactory.Create(),
+        Content = DataBindingFactory.Create(),
         UsageHint = TextUsageHint.Body
     };
 
     internal static TextField CreateTextField() => new()
     {
-        Label = DataModelReferenceFactory.Create(),
-        Value = DataModelReferenceFactory.Create(),
+        Label = DataBindingFactory.Create(),
+        Value = DataBindingFactory.Create(),
         Variant = TextFieldVariant.LongText,
         ValidationRegex = "^[^@\\s]+@[^@\\s]+\\.[^@\\s]+$"
     };

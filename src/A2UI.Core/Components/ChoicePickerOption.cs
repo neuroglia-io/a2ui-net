@@ -26,8 +26,8 @@ public sealed record ChoicePickerOption
     /// </summary>
     [Description("The text to display.")]
     [Required]
-    [DataMember(Order =1, Name = "label"), JsonPropertyOrder(1), JsonPropertyName("label"), JsonConverter(typeof(JsonOneOfConverter<DataModelReference, string>))]
-    public required OneOf<DataModelReference, string> Label { get; init; }
+    [DataMember(Order =1, Name = "label"), JsonPropertyOrder(1), JsonPropertyName("label"), JsonConverter(typeof(JsonOneOfConverter<DataBinding, FunctionCall, string>))]
+    public required OneOf<DataBinding, FunctionCall, string> Label { get; init; }
 
     /// <summary>
     /// Gets the value associated with the option.

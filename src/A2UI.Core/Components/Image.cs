@@ -31,8 +31,8 @@ public sealed record Image
     /// </summary>
     [Description("The URL of the image to display.")]
     [Required]
-    [DataMember(Order = 4, Name = "url"), JsonPropertyOrder(4), JsonPropertyName("url"), JsonConverter(typeof(JsonOneOfConverter<DataModelReference, Uri>))]
-    public required OneOf<DataModelReference, Uri> Url { get; init; }
+    [DataMember(Order = 4, Name = "url"), JsonPropertyOrder(4), JsonPropertyName("url"), JsonConverter(typeof(JsonOneOfConverter<DataBinding, FunctionCall, Uri>))]
+    public required OneOf<DataBinding, FunctionCall, Uri> Url { get; init; }
 
     /// <summary>
     /// Gets a value used to specify how the image should be resized to fit its container.

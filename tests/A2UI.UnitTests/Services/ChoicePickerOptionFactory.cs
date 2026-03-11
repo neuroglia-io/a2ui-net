@@ -20,7 +20,7 @@ internal static class ChoicePickerOptionFactory
 
     internal static ChoicePickerOption Create() => new()
     {
-        Label = DataModelReferenceFactory.Create(),
+        Label = DataBindingFactory.Create(),
         Value = Guid.NewGuid().ToString("N")
     };
 

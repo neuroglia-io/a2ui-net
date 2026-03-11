@@ -26,8 +26,8 @@ public sealed record Tab
     /// </summary>
     [Description("The tab's title.")]
     [Required]
-    [DataMember(Order = 1, Name = "title"), JsonPropertyOrder(1), JsonPropertyName("title"), JsonConverter(typeof(JsonOneOfConverter<DataModelReference, string>))]
-    public required OneOf<DataModelReference, string> Title { get; init; }
+    [DataMember(Order = 1, Name = "title"), JsonPropertyOrder(1), JsonPropertyName("title"), JsonConverter(typeof(JsonOneOfConverter<DataBinding, FunctionCall, string>))]
+    public required OneOf<DataBinding, FunctionCall, string> Title { get; init; }
 
     /// <summary>
     /// Gets the unique identifier of the child component displayed within the tab.

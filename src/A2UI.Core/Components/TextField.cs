@@ -19,7 +19,7 @@ namespace A2UI.Components;
 [Description("Represents a component used to display a text field.")]
 [DataContract]
 public sealed record TextField
-    : Component
+    : CheckableComponent
 {
 
     /// <inheritdoc/>
@@ -31,15 +31,15 @@ public sealed record TextField
     /// </summary>
     [Description("The text label for the input field.")]
     [Required]
-    [DataMember(Order = 4, Name = "label"), JsonPropertyOrder(4), JsonPropertyName("label"), JsonConverter(typeof(JsonOneOfConverter<DataModelReference, string>))]
-    public required OneOf<DataModelReference, string> Label { get; init; }
+    [DataMember(Order = 4, Name = "label"), JsonPropertyOrder(4), JsonPropertyName("label"), JsonConverter(typeof(JsonOneOfConverter<DataBinding, FunctionCall, string>))]
+    public required OneOf<DataBinding, FunctionCall, string> Label { get; init; }
 
     /// <summary>
     /// Gets the value, if any, of the text field.
     /// </summary>
     [Description("The value, if any, of the text field.")]
-    [DataMember(Order = 5, Name = "value"), JsonPropertyOrder(5), JsonPropertyName("value"), JsonConverter(typeof(JsonOneOfConverter<DataModelReference, string>))]
-    public OneOf<DataModelReference, string>? Value { get; init; }
+    [DataMember(Order = 5, Name = "value"), JsonPropertyOrder(5), JsonPropertyName("value"), JsonConverter(typeof(JsonOneOfConverter<DataBinding, FunctionCall, string>))]
+    public OneOf<DataBinding, FunctionCall, string>? Value { get; init; }
 
     /// <summary>
     /// Gets the text field variant.

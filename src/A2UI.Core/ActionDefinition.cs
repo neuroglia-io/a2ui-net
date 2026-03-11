@@ -11,20 +11,12 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-using A2UI.Components;
+namespace A2UI;
 
-namespace A2UI.UnitTests.Services;
-
-internal static class ButtonActionFactory
-{
-    
-    internal static ButtonAction Create() => new()
-    {
-        Name = "SampleClientSideAction",
-        Context = new()
-        {
-            ["SampleKey"] = "SampleValue"
-        }
-    };
-
-}
+/// <summary>
+/// Represents an interaction handler that can either trigger a server-side event or execute a local client-side function.
+/// </summary>
+[Description("Represents an interaction handler that can either trigger a server-side event or execute a local client-side function.")]
+[JsonConverter(typeof(JsonActionDefinitionConverter))]
+[DataContract, KnownType(typeof(EventAction)), KnownType(typeof(FunctionCallAction))]
+public abstract record ActionDefinition { }

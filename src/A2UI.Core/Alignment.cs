@@ -38,5 +38,5 @@ public enum Alignment
     /// Indicates stretch alignment.
     /// </summary>
     [EnumMember(Value = "stretch"), JsonStringEnumMemberName("stretch")]
-    Stretch,
+    Stretch
 }

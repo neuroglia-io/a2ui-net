@@ -19,7 +19,7 @@ namespace A2UI.Components;
 [Description("Represents a component used to display a checkbox.")]
 [DataContract]
 public sealed record CheckBox
-    : Component
+    : CheckableComponent
 {
 
     /// <inheritdoc/>
@@ -31,15 +31,15 @@ public sealed record CheckBox
     /// </summary>
     [Description("The text to display next to the checkbox.")]
     [Required]
-    [DataMember(Order = 4, Name = "label"), JsonPropertyOrder(4), JsonPropertyName("label"), JsonConverter(typeof(JsonOneOfConverter<DataModelReference, string>))]
-    public required OneOf<DataModelReference, string> Label { get; init; }
+    [DataMember(Order = 4, Name = "label"), JsonPropertyOrder(4), JsonPropertyName("label"), JsonConverter(typeof(JsonOneOfConverter<DataBinding, FunctionCall, string>))]
+    public required OneOf<DataBinding, FunctionCall, string> Label { get; init; }
 
     /// <summary>
     /// Gets the current state of the checkbox (true for checked, false for unchecked)
     /// </summary>
     [Description("The current state of the checkbox (true for checked, false for unchecked)")]
     [Required]
-    [DataMember(Order = 5, Name = "value"), JsonPropertyOrder(5), JsonPropertyName("value"), JsonConverter(typeof(JsonOneOfConverter<DataModelReference, bool>))]
-    public required OneOf<DataModelReference, bool> Value { get; init; }
+    [DataMember(Order = 5, Name = "value"), JsonPropertyOrder(5), JsonPropertyName("value"), JsonConverter(typeof(JsonOneOfConverter<DataBinding, FunctionCall, bool>))]
+    public required OneOf<DataBinding, FunctionCall, bool> Value { get; init; }
 
 }

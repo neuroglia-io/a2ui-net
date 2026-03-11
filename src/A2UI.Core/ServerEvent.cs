@@ -11,28 +11,28 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-namespace A2UI.Components;
+namespace A2UI;
 
 /// <summary>
-/// Represents a client-side action associated with a component.
+/// Represents a server-side event that can be triggered by an interaction handler, allowing the client to communicate with the server and perform actions such as form submission, data retrieval, or other server-side operations.
 /// </summary>
-[Description("Represents a client-side action associated with a component.")]
+[Description("Represents a server-side event that can be triggered by an interaction handler, allowing the client to communicate with the server and perform actions such as form submission, data retrieval, or other server-side operations.")]
 [DataContract]
-public sealed record ButtonAction
+public sealed record ServerEvent
 {
 
     /// <summary>
-    /// Gets the action's name.
+    /// Gets the name of the action to be dispatched to the server.
     /// </summary>
-    [Description("The action's name.")]
-    [Required]
+    [Description("The name of the action to be dispatched to the server.")]
+    [Required, StringLength(int.MaxValue, MinimumLength = 1)]
     [DataMember(Order = 1, Name = "name"), JsonPropertyOrder(1), JsonPropertyName("name")]
     public required string Name { get; init; }
 
     /// <summary>
-    /// Gets a key/value mapping, if any, used for the action's context.
+    /// Gets an object containing the key-value pairs for the action context.
     /// </summary>
-    [Description("A key/value mapping, if any, used for the action's context.")]
+    [Description("An object containing the key-value pairs for the action context.")]
     [DataMember(Order = 2, Name = "context"), JsonPropertyOrder(2), JsonPropertyName("context")]
     public JsonObject? Context { get; init; }
 

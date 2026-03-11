@@ -20,7 +20,7 @@ public static class TabFactory
 
     public static Tab Create() => new()
     {
-        Title = DataModelReferenceFactory.Create(),
+        Title = DataBindingFactory.Create(),
         Child = Guid.NewGuid().ToString("N")
     };
 
