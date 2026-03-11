@@ -31,7 +31,7 @@ public sealed record Icon
     /// </summary>
     [Description("The name of the icon to display.")]
     [Required]
-    [DataMember(Order = 4, Name = "name"), JsonPropertyOrder(4), JsonPropertyName("name"), JsonConverter(typeof(JsonOneOfConverter<DataModelReference, IconName>))]
-    public required OneOf<DataModelReference, IconName> Name { get; init; }
+    [DataMember(Order = 4, Name = "name"), JsonPropertyOrder(4), JsonPropertyName("name"), JsonConverter(typeof(JsonOneOfConverter<DataBinding, IconName>))]
+    public required OneOf<DataBinding, IconName> Name { get; init; }
 
 }

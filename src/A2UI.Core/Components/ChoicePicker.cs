@@ -19,7 +19,7 @@ namespace A2UI.Components;
 [Description("Represents a component used to display a choice picker.")]
 [DataContract]
 public sealed record ChoicePicker
-    : Component
+    : CheckableComponent
 {
 
     /// <inheritdoc/>
@@ -31,8 +31,8 @@ public sealed record ChoicePicker
     /// </summary>
     [Description("The text to display next to the choice picker.")]
     [Required]
-    [DataMember(Order = 4, Name = "label"), JsonPropertyOrder(4), JsonPropertyName("label"), JsonConverter(typeof(JsonOneOfConverter<DataModelReference, string>))]
-    public required OneOf<DataModelReference, string> Label { get; init; }
+    [DataMember(Order = 4, Name = "label"), JsonPropertyOrder(4), JsonPropertyName("label"), JsonConverter(typeof(JsonOneOfConverter<DataBinding, FunctionCall, string>))]
+    public required OneOf<DataBinding, FunctionCall, string> Label { get; init; }
 
     /// <summary>
     /// Gets an hint for how the choice picker should be displayed and behave.
@@ -55,8 +55,8 @@ public sealed record ChoicePicker
     /// </summary>
     [Description("The list of currently selected values. This should be bound to a string array in the data model.")]
     [Required]
-    [DataMember(Order = 7, Name = "value"), JsonPropertyOrder(7), JsonPropertyName("value"), JsonConverter(typeof(JsonOneOfConverter<DataModelReference, string[]>))]
-    public required OneOf<DataModelReference, string[]> Value { get; init; }
+    [DataMember(Order = 7, Name = "value"), JsonPropertyOrder(7), JsonPropertyName("value"), JsonConverter(typeof(JsonOneOfConverter<DataBinding, FunctionCall, string[]>))]
+    public required OneOf<DataBinding, FunctionCall, string[]> Value { get; init; }
 
     /// <summary>
     /// Gets the component's display style.

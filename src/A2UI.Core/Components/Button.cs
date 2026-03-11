@@ -19,7 +19,7 @@ namespace A2UI.Components;
 [Description("Represents a component used to display a button.")]
 [DataContract]
 public sealed record Button
-    : Component
+    : CheckableComponent
 {
 
     /// <inheritdoc/>
@@ -47,6 +47,6 @@ public sealed record Button
     [Description("The client-side action to be dispatched when the button is clicked.")]
     [Required]
     [DataMember(Order = 6, Name = "action"), JsonPropertyOrder(6), JsonPropertyName("action")]
-    public required ButtonAction Action { get; init; }
+    public required ActionDefinition Action { get; init; }
 
 }

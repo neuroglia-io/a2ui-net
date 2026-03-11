@@ -31,14 +31,14 @@ public sealed record AudioPlayer
     /// </summary>
     [Description("The URL of the audio to play.")]
     [Required]
-    [DataMember(Order = 4, Name = "url"), JsonPropertyOrder(4), JsonPropertyName("url"), JsonConverter(typeof(JsonOneOfConverter<DataModelReference, Uri>))]
-    public required OneOf<DataModelReference, Uri> Url { get; init; }
+    [DataMember(Order = 4, Name = "url"), JsonPropertyOrder(4), JsonPropertyName("url"), JsonConverter(typeof(JsonOneOfConverter<DataBinding, FunctionCall, Uri>))]
+    public required OneOf<DataBinding, FunctionCall, Uri> Url { get; init; }
 
     /// <summary>
     /// Gets a description, if any, of the audio content.
     /// </summary>
     [Description("A description, if any, of the audio content.")]
-    [DataMember(Order = 5, Name = "description"), JsonPropertyOrder(5), JsonPropertyName("description")]
-    public string? Description { get; init; }
+    [DataMember(Order = 5, Name = "description"), JsonPropertyOrder(5), JsonPropertyName("description"), JsonConverter(typeof(JsonOneOfConverter<DataBinding, FunctionCall, string>))]
+    public OneOf<DataBinding, FunctionCall, string>? Description { get; init; }
 
 }

@@ -19,7 +19,7 @@ namespace A2UI.Components;
 [Description("Represents a component used to display a slider.")]
 [DataContract]
 public sealed record Slider
-    : Component
+    : CheckableComponent
 {
 
     /// <inheritdoc/>
@@ -31,8 +31,8 @@ public sealed record Slider
     /// </summary>
     [Description("The text to display next to the slider.")]
     [Required]
-    [DataMember(Order = 4, Name = "label"), JsonPropertyOrder(4), JsonPropertyName("label"), JsonConverter(typeof(JsonOneOfConverter<DataModelReference, string>))]
-    public required OneOf<DataModelReference, string> Label { get; init; }
+    [DataMember(Order = 4, Name = "label"), JsonPropertyOrder(4), JsonPropertyName("label"), JsonConverter(typeof(JsonOneOfConverter<DataBinding, FunctionCall, string>))]
+    public required OneOf<DataBinding, FunctionCall, string> Label { get; init; }
 
     /// <summary>
     /// Gets the minimum value, if any, for the slider.
@@ -53,7 +53,7 @@ public sealed record Slider
     /// </summary>
     [Description("The current value of the slider.")]
     [Required]
-    [DataMember(Order = 7, Name = "value"), JsonPropertyOrder(7), JsonPropertyName("value"), JsonConverter(typeof(JsonOneOfConverter<DataModelReference, int>))]
-    public required OneOf<DataModelReference, int> Value { get; init; }
+    [DataMember(Order = 7, Name = "value"), JsonPropertyOrder(7), JsonPropertyName("value"), JsonConverter(typeof(JsonOneOfConverter<DataBinding, FunctionCall, int>))]
+    public required OneOf<DataBinding, FunctionCall, int> Value { get; init; }
 
 }

@@ -69,3 +69,68 @@ public class JsonOneOfConverter<T1, T2>
     }
 
 }
+
+
+/// <summary>
+/// Represents a JSON converter for <see cref="OneOf{T1, T2, T3}"/> types.
+/// </summary>
+/// <typeparam name="T1">The first possible type.</typeparam>
+/// <typeparam name="T2">The second possible type.</typeparam>
+/// <typeparam name="T3">The third possible type.</typeparam>
+public class JsonOneOfConverter<T1, T2, T3>
+    : JsonConverter<OneOf<T1, T2, T3>>
+{
+
+    /// <inheritdoc/>
+    public override bool CanConvert(Type typeToConvert) => typeToConvert == typeof(OneOf<T1, T2, T3>) || typeToConvert == typeof(T1) || typeToConvert == typeof(T2) || typeToConvert == typeof(T3);
+
+    /// <inheritdoc/>
+    public override OneOf<T1, T2, T3> Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
+    {
+        using var doc = JsonDocument.ParseValue(ref reader);
+        var raw = doc.RootElement.GetRawText();
+        if (TryDeserialize<T1>(raw, options, out var t1)) return new OneOf<T1, T2, T3>(t1!);
+        if (TryDeserialize<T2>(raw, options, out var t2)) return new OneOf<T1, T2, T3>(t2!);
+        if (TryDeserialize<T3>(raw, options, out var t3)) return new OneOf<T1, T2, T3>(t3!);
+        throw new JsonException($"Value does not match either {typeof(T1).Name}, {typeof(T2).Name} or {typeof(T3).Name}.");
+    }
+
+    /// <inheritdoc/>
+    public override void Write(Utf8JsonWriter writer, OneOf<T1, T2, T3> value, JsonSerializerOptions options)
+    {
+        value.Switch
+        (
+            a =>
+            {
+                var typeInfo = options.GetTypeInfo(typeof(T1)) ?? throw new JsonException($"Missing JsonTypeInfo for {typeof(T1).FullName}.");
+                JsonSerializer.Serialize(writer, a, typeInfo);
+            },
+            b =>
+            {
+                var typeInfo = options.GetTypeInfo(typeof(T2)) ?? throw new JsonException($"Missing JsonTypeInfo for {typeof(T2).FullName}.");
+                JsonSerializer.Serialize(writer, b, typeInfo);
+            },
+            c =>
+            {
+                var typeInfo = options.GetTypeInfo(typeof(T3)) ?? throw new JsonException($"Missing JsonTypeInfo for {typeof(T3).FullName}.");
+                JsonSerializer.Serialize(writer, c, typeInfo);
+            }
+        );
+    }
+
+    static bool TryDeserialize<T>(string json, JsonSerializerOptions options, out T? value)
+    {
+        try
+        {
+            var typeInfo = options.GetTypeInfo(typeof(T)) ?? throw new JsonException($"Missing JsonTypeInfo for {typeof(T).FullName}.");
+            value = (T?)JsonSerializer.Deserialize(json, typeInfo);
+            return value is not null || json == "null";
+        }
+        catch
+        {
+            value = default;
+            return false;
+        }
+    }
+
+}

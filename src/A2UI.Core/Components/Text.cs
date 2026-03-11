@@ -31,8 +31,8 @@ public sealed record Text
     /// </summary>
     [Description("The text content to display. While simple Markdown formatting is supported (i.e. without HTML, images, or links), utilizing dedicated UI components is generally preferred for a richer and more structured presentation.")]
     [Required]
-    [DataMember(Order = 4, Name = "text"), JsonPropertyOrder(4), JsonPropertyName("text"), JsonConverter(typeof(JsonOneOfConverter<DataModelReference, string>))]
-    public required OneOf<DataModelReference, string> Content { get; init; }
+    [DataMember(Order = 4, Name = "text"), JsonPropertyOrder(4), JsonPropertyName("text"), JsonConverter(typeof(JsonOneOfConverter<DataBinding, FunctionCall, string>))]
+    public required OneOf<DataBinding, FunctionCall, string> Content { get; init; }
 
     /// <summary>
     /// Gets a hint, if any, for the base text style.
