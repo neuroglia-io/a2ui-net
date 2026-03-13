@@ -30,10 +30,13 @@ public sealed record OpenUrlFunctionCall
     /// <summary>
     /// Initializes a new <see cref="OpenUrlFunctionCall" />.
     /// </summary>
-    public OpenUrlFunctionCall()
+    /// <param name="arguments">The arguments for the function call.</param>
+    [SetsRequiredMembers]
+    public OpenUrlFunctionCall(OpenUrlFunctionArgs arguments)
     {
         Call = FunctionName;
         ReturnType = FunctionReturnType.Void;
+        Arguments = arguments;
     }
 
     /// <summary>

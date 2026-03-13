@@ -30,10 +30,13 @@ public sealed record FormatNumberFunctionCall
     /// <summary>
     /// Initializes a new <see cref="FormatNumberFunctionCall" />.
     /// </summary>
-    public FormatNumberFunctionCall()
+    /// <param name="arguments">The arguments for the function call.</param>
+    [SetsRequiredMembers]
+    public FormatNumberFunctionCall(FormatNumberFunctionArgs arguments)
     {
         Call = FunctionName;
         ReturnType = FunctionReturnType.String;
+        Arguments = arguments;
     }
 
     /// <summary>

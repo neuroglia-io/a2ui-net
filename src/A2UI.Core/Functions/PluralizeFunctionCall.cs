@@ -30,10 +30,13 @@ public sealed record PluralizeFunctionCall
     /// <summary>
     /// Initializes a new <see cref="PluralizeFunctionCall" />.
     /// </summary>
-    public PluralizeFunctionCall()
+    /// <param name="arguments">The arguments for the function call.</param>
+    [SetsRequiredMembers]
+    public PluralizeFunctionCall(PluralizeFunctionArgs arguments)
     {
         Call = FunctionName;
         ReturnType = FunctionReturnType.String;
+        Arguments = arguments;
     }
 
     /// <summary>
