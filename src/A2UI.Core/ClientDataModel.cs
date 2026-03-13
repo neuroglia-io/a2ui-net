@@ -14,11 +14,11 @@
 namespace A2UI;
 
 /// <summary>
-/// Represents an A2UI message. Messages are used to communicate between components and the application. They can be used to trigger actions, update state, or notify about events. Messages are immutable and can be created using record types for convenience.
+/// Represents the client-maintained object data model that may be sent with each request when server-initiated synchronization is enabled.
 /// </summary>
-[Description("Represents an A2UI message. Messages are used to communicate between components and the application. They can be used to trigger actions, update state, or notify about events. Messages are immutable and can be created using record types for convenience.")]
+[Description("Represents the client-maintained object data model that may be sent with each request when server-initiated synchronization is enabled.")]
 [DataContract]
-public abstract record Message
+public sealed record ClientDataModel
 {
 
     /// <summary>
@@ -27,5 +27,12 @@ public abstract record Message
     [Description("The version of the A2UI specification that this message conforms to.")]
     [DataMember(Order = 1, Name = "version"), JsonPropertyOrder(1), JsonPropertyName("version")]
     public string Version { get; init; } = A2UISpecificationDefaults.Version;
+
+    /// <summary>
+    /// Gets a key/value mapping of surface identifiers to their corresponding JSON objects representing the data model state of each surface.
+    /// </summary>
+    [Description("A key/value mapping of surface identifiers to their corresponding JSON objects representing the data model state of each surface.")]
+    [DataMember(Order = 2, Name = "surfaces"), JsonPropertyOrder(2), JsonPropertyName("surfaces")]
+    public required IReadOnlyDictionary<string, JsonObject> Surfaces { get; init; }
 
 }
