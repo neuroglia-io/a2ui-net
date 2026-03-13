@@ -27,6 +27,10 @@ public static class A2UISpecificationDefaults
     /// Gets the default content type for A2UI messages.
     /// </summary>
     public const string ContentType = "application/json+a2ui";
+    /// <summary>
+    /// Gets the default ID for the root component.
+    /// </summary>
+    public const string RootComponentId = "root";
 
     /// <summary>
     /// Exposes default catalogs that can be used by components and messages to reference standard definitions of components, surfaces, and other elements in the A2UI specification.
