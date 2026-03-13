@@ -12,6 +12,7 @@
 // limitations under the License.
 
 using A2UI.Components;
+using A2UI.Events;
 using A2UI.Messages;
 
 namespace A2UI.Serialization.Json;
@@ -27,6 +28,13 @@ namespace A2UI.Serialization.Json;
 [JsonSerializable(typeof(AndFunctionCall))]
 [JsonSerializable(typeof(CheckRule))]
 [JsonSerializable(typeof(ChoicePickerOption))]
+[JsonSerializable(typeof(ClientSideAction))]
+[JsonSerializable(typeof(ClientSideActionEvent))]
+[JsonSerializable(typeof(ClientSideEvent))]
+[JsonSerializable(typeof(ClientSideErrorEvent))]
+[JsonSerializable(typeof(ClientSideError))]
+[JsonSerializable(typeof(ClientSideGenericError))]
+[JsonSerializable(typeof(ClientSideValidationError))]
 [JsonSerializable(typeof(Component))]
 [JsonSerializable(typeof(ComponentTemplate))]
 [JsonSerializable(typeof(CreateSurfaceMessage))]

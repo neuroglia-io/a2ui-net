@@ -13,30 +13,30 @@
 
 namespace A2UI.UnitTests.Cases.Core;
 
-public class ActionDefinitionTests
+public class ClientSideErrorTests
 {
 
     [Fact]
-    public void Serialize_And_Deserialize_EventAction_Should_Work()
+    public void Serialize_And_Deserialize_ClientSideGenericError_Should_Work()
     {
         //arrange
-        var toSerialize = ActionDefinitionFactory.CreateEventAction();
+        var toSerialize = ClientSideErrorFactory.CreateGenericError();
         //act
-        var json = JsonSerializer.Serialize(toSerialize, JsonSerializationContext.Default.ActionDefinition);
-        var deserialized = JsonSerializer.Deserialize(json, JsonSerializationContext.Default.ActionDefinition);
+        var json = JsonSerializer.Serialize(toSerialize, JsonSerializationContext.Default.ClientSideError);
+        var deserialized = JsonSerializer.Deserialize(json, JsonSerializationContext.Default.ClientSideError);
         //assert
         json.Should().NotBeNullOrWhiteSpace();
         deserialized.Should().BeJsonEquivalentTo(toSerialize);
     }
 
     [Fact]
-    public void Serialize_And_Deserialize_FunctionCallAction_Should_Work()
+    public void Serialize_And_Deserialize_ClientSideValidationError_Should_Work()
     {
         //arrange
-        var toSerialize = ActionDefinitionFactory.CreateFunctionCallAction();
+        var toSerialize = ClientSideErrorFactory.CreateValidationError();
         //act
-        var json = JsonSerializer.Serialize(toSerialize, JsonSerializationContext.Default.ActionDefinition);
-        var deserialized = JsonSerializer.Deserialize(json, JsonSerializationContext.Default.ActionDefinition);
+        var json = JsonSerializer.Serialize(toSerialize, JsonSerializationContext.Default.ClientSideError);
+        var deserialized = JsonSerializer.Deserialize(json, JsonSerializationContext.Default.ClientSideError);
         //assert
         json.Should().NotBeNullOrWhiteSpace();
         deserialized.Should().BeJsonEquivalentTo(toSerialize);
