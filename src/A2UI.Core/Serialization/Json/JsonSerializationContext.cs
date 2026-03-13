@@ -28,6 +28,7 @@ namespace A2UI.Serialization.Json;
 [JsonSerializable(typeof(AndFunctionCall))]
 [JsonSerializable(typeof(CheckRule))]
 [JsonSerializable(typeof(ChoicePickerOption))]
+[JsonSerializable(typeof(ClientDataModel))]
 [JsonSerializable(typeof(ClientSideAction))]
 [JsonSerializable(typeof(ClientSideActionEvent))]
 [JsonSerializable(typeof(ClientSideEvent))]

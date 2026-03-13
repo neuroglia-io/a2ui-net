@@ -27,6 +27,6 @@ public abstract record ClientSideEvent
     /// </summary>
     [Description("The version of the A2UI specification that this message conforms to.")]
     [DataMember(Order = 1, Name = "version"), JsonPropertyOrder(1), JsonPropertyName("version")]
-    public string Version { get; set; } = A2UISpecificationDefaults.Version;
+    public string Version { get; init; } = A2UISpecificationDefaults.Version;
 
 }
