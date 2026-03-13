@@ -31,7 +31,7 @@ public class FunctionCallTests
     }
 
     [Fact]
-    public void Serialize_And_Deserialize_AndFunctionCall_Should_Work()
+    public void Serialize_And_Deserialize_EmailFunctionCall_Should_Work()
     {
         //arrange
         var toSerialize = new EmailFunctionCall(new()
@@ -45,4 +45,26 @@ public class FunctionCallTests
         json.Should().NotBeNullOrWhiteSpace();
         deserialized.Should().BeJsonEquivalentTo(toSerialize);
     }
+
+    [Fact]
+    public void Serialize_And_Deserialize_NumericFunctionCall_Should_Work()
+    {
+        //arrange
+        var toSerialize = new NumericFunctionCall(new()
+        {
+            Min = 0,
+            Max = 100,
+            Value = new DataBinding()
+            {
+                Path = JsonPointer.Parse("/some/path")
+            }
+        });
+        //act
+        var json = JsonSerializer.Serialize(toSerialize, JsonSerializationContext.Default.FunctionCall);
+        var deserialized = JsonSerializer.Deserialize(json, JsonSerializationContext.Default.FunctionCall);
+        //assert
+        json.Should().NotBeNullOrWhiteSpace();
+        deserialized.Should().BeJsonEquivalentTo(toSerialize);
+    }
+
 }

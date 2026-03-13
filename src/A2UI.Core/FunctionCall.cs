@@ -68,7 +68,7 @@ public abstract record FunctionCall<TArgs>
         }
         init
         {
-            Args = JsonSerializer.SerializeToNode(Arguments, ArgumentsTypeInfo);
+            Args = JsonSerializer.SerializeToNode(value, ArgumentsTypeInfo);
         }
     }
 
