@@ -30,10 +30,13 @@ public sealed record NotFunctionCall
     /// <summary>
     /// Initializes a new <see cref="NotFunctionCall" />.
     /// </summary>
-    public NotFunctionCall()
+    /// <param name="arguments">The arguments for the function call.</param>
+    [SetsRequiredMembers]
+    public NotFunctionCall(NotFunctionArgs arguments)
     {
         Call = FunctionName;
         ReturnType = FunctionReturnType.Boolean;
+        Arguments = arguments;
     }
 
     /// <summary>

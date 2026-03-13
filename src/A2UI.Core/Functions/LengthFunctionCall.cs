@@ -30,10 +30,13 @@ public sealed record LengthFunctionCall
     /// <summary>
     /// Initializes a new <see cref="LengthFunctionCall" />.
     /// </summary>
-    public LengthFunctionCall()
+    /// <param name="arguments">The arguments for the function call.</param>
+    [SetsRequiredMembers]
+    public LengthFunctionCall(LengthFunctionArgs arguments)
     {
         Call = FunctionName;
         ReturnType = FunctionReturnType.Boolean;
+        Arguments = arguments;
     }
 
     /// <summary>

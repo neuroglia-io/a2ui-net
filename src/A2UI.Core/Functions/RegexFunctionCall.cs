@@ -30,10 +30,13 @@ public sealed record RegexFunctionCall
     /// <summary>
     /// Initializes a new <see cref="RegexFunctionCall" />.
     /// </summary>
-    public RegexFunctionCall()
+    /// <param name="arguments">The arguments for the function call.</param>
+    [SetsRequiredMembers]
+    public RegexFunctionCall(RegexFunctionArgs arguments)
     {
         Call = FunctionName;
         ReturnType = FunctionReturnType.Boolean;
+        Arguments = arguments;
     }
 
     /// <summary>

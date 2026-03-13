@@ -30,14 +30,17 @@ public sealed record RequiredFunctionCall
     /// <summary>
     /// Initializes a new <see cref="RequiredFunctionCall"/>.
     /// </summary>
-    public RequiredFunctionCall()
+    /// <param name="arguments">The arguments for the function call.</param>
+    [SetsRequiredMembers]
+    public RequiredFunctionCall(RequiredFunctionArgs arguments)
     {
         Call = FunctionName;
         ReturnType = FunctionReturnType.Boolean;
+        Arguments = arguments;
     }
 
     /// <inheritdoc/>
     [JsonIgnore]
-    protected override JsonTypeInfo<RequiredFunctionArgs> ArgumentsTypeInfo => throw new NotImplementedException();
+    protected override JsonTypeInfo<RequiredFunctionArgs> ArgumentsTypeInfo => JsonSerializationContext.Default.RequiredFunctionArgs;
 
 }

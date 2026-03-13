@@ -30,6 +30,7 @@ public sealed record FormatCurrencyFunctionCall
     /// <summary>
     /// Initializes a new <see cref="FormatCurrencyFunctionCall" />.
     /// </summary>
+    /// <param name="arguments">The arguments for the function call.</param>
     [SetsRequiredMembers]
     public FormatCurrencyFunctionCall(FormatCurrencyFunctionArgs arguments)
     {

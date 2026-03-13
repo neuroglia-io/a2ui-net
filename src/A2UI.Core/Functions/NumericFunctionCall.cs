@@ -30,10 +30,13 @@ public sealed record NumericFunctionCall
     /// <summary>
     /// Initializes a new <see cref="NumericFunctionCall" />.
     /// </summary>
-    public NumericFunctionCall()
+    /// <param name="arguments">The arguments for the function call.</param>
+    [SetsRequiredMembers]
+    public NumericFunctionCall(NumericFunctionArgs arguments)
     {
         Call = FunctionName;
         ReturnType = FunctionReturnType.Boolean;
+        Arguments = arguments;
     }
 
     /// <summary>

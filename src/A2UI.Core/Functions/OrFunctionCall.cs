@@ -30,10 +30,13 @@ public sealed record OrFunctionCall
     /// <summary>
     /// Initializes a new <see cref="OrFunctionCall" />.
     /// </summary>
-    public OrFunctionCall()
+    /// <param name="arguments">The arguments for the function call.</param>
+    [SetsRequiredMembers]
+    public OrFunctionCall(OrFunctionArgs arguments)
     {
         Call = FunctionName;
         ReturnType = FunctionReturnType.Boolean;
+        Arguments = arguments;
     }
 
     /// <summary>

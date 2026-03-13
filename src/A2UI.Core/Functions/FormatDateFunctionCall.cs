@@ -30,6 +30,7 @@ public sealed record FormatDateFunctionCall
     /// <summary>
     /// Initializes a new <see cref="FormatDateFunctionCall" />.
     /// </summary>
+    /// <param name="arguments">The arguments for the function call.</param>
     [SetsRequiredMembers]
     public FormatDateFunctionCall(FormatDateFunctionArgs arguments)
     {
