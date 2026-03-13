@@ -45,4 +45,17 @@ public static class A2UISpecificationDefaults
 
     }
 
+    /// <summary>
+    /// Exposes default error codes that can be used in client-side error events to indicate specific types of errors that occurred during client-side processing.
+    /// </summary>
+    public static class ErrorCodes
+    {
+
+        /// <summary>
+        /// Gets the error code indicating that a validation error occurred during client-side processing.
+        /// </summary>
+        public const string ValidationFailed = "VALIDATION_FAILED";
+
+    }
+
 }
